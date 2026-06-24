@@ -265,6 +265,88 @@ html.dark {
 @media (min-width: 640px)  { .carousel__slide { flex-basis: calc((100% - 1.25rem) / 2); } }
 @media (min-width: 1024px) { .carousel__slide { flex-basis: calc((100% - 2 * 1.25rem) / 3); } }
 
+/* ---------- Sobre / Jornada ---------- */
+.about__body {
+  max-width: 70ch;
+  margin-inline: auto;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  text-align: center;
+  color: var(--pf-text-muted);
+}
+.about__body strong { color: inherit; font-weight: 700; }
+html.dark .about__body { color: #cbd5e1; }
+
+/* ---------- Skills ---------- */
+.skills__group { margin-bottom: 2rem; }
+.skills__label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--pf-text-muted);
+  margin: 0 0 0.85rem;
+}
+
+.skills__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1rem 1.15rem;
+  background: var(--pf-surface);
+  border: 1px solid var(--pf-border);
+  border-radius: var(--pf-radius);
+}
+.skill-card--learning { border-left: 4px solid var(--pf-accent); }
+.skill-card__head { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+.skill-card__name { font-weight: 700; font-size: 1.05rem; }
+.skill-card__meta { color: var(--pf-text-muted); font-size: 0.9rem; }
+.skill-card__focus { color: var(--pf-text-muted); font-size: 0.95rem; line-height: 1.5; }
+
+.badge--learning {
+  background: var(--pf-accent);
+  color: #fff;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.skills__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ---------- Conceitos ---------- */
+.concepts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 2.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.concept-card {
+  padding: 1.15rem;
+  border-radius: var(--pf-radius);
+  background: linear-gradient(135deg, rgba(124,58,237,0.10), rgba(79,70,229,0.10));
+  border: 1px solid var(--pf-border);
+}
+.concept-card__title { margin: 0 0 0.4rem; font-size: 1.05rem; font-weight: 700; color: var(--pf-accent); }
+.concept-card__note { margin: 0; font-size: 0.92rem; line-height: 1.5; color: var(--pf-text-muted); }
+
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   .btn { transition: none; }

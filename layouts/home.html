@@ -4,14 +4,16 @@
   <main id="content" class="portfolio">
     {{ partial "hero.html" . }}
 
-    {{- /* Âncoras das próximas seções (Stages 04–06).
-           Mantêm os CTAs e o menu funcionando desde já. */ -}}
-    <section id="projetos" class="section section--projetos">
-      {{ partial "carousel.html" . }}
+    <section id="sobre" class="section section--sobre">
+      {{ partial "about.html" . }}
     </section>
 
     <section id="skills" class="section section--skills">
-      {{- /* Stage 05: skills & jornada */ -}}
+      {{ partial "skills.html" . }}
+    </section>
+
+    <section id="projetos" class="section section--projetos">
+      {{ partial "carousel.html" . }}
     </section>
 
     <section id="contato" class="section section--contato">

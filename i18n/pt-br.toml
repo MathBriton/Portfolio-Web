@@ -46,6 +46,13 @@ other = "Contato"
 [contact_lead]
 other = "Vamos conversar?"
 
+# Sobre / Jornada
+[about_body]
+other = "Desenvolvedor de software fullstack, 27 anos, com 3 anos de experiência construindo aplicações com <strong>.NET</strong> e <strong>Node.js</strong>. Atualmente me aprofundando em <strong>Elixir</strong> — explorando alta disponibilidade e tolerância a falhas na <strong>VM da BEAM</strong> — e em <strong>Go</strong>, com foco em concorrência e paralelismo com <strong>goroutines</strong>."
+
+[years_label]
+other = "anos"
+
 # Skills
 [skills_core]
 other = "Principais"
