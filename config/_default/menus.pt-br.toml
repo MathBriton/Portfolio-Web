@@ -14,3 +14,15 @@
   weight = 3
   [main.params]
     icon = "github"
+
+[[main]]
+  identifier = "theme"
+  weight = 90
+  [main.params]
+    type = "theme-toggle"
+
+[[main]]
+  identifier = "language"
+  weight = 91
+  [main.params]
+    type = "language-switch"
