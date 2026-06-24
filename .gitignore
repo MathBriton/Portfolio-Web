@@ -1,0 +1,30 @@
+# Hugo
+/public/
+/resources/_gen/
+/.hugo_build.lock
+hugo_stats.json
+
+# Hugo Modules / Go
+/go.sum.bak
+
+# Node (caso ferramentas de build sejam adicionadas)
+node_modules/
+npm-debug.log*
+
+# Vercel
+.vercel/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+
+# Ambiente
+.env
+.env.local

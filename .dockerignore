@@ -1,0 +1,16 @@
+.git
+.gitignore
+.github
+.vercel
+public
+resources/_gen
+node_modules
+.hugo_build.lock
+spec
+README.md
+*.md
+!content/**/*.md
+Dockerfile
+docker-compose.yml
+.dockerignore
+.env*

@@ -1,0 +1,27 @@
+# Ambiente de produção (paridade local com o que vai pra Vercel)
+#
+#   Produção:   docker compose up --build web      → http://localhost:8080
+#   Desenvolv.: docker compose --profile dev up dev → http://localhost:1313
+#
+services:
+  # Build estático servido por Nginx (espelha o ambiente de produção)
+  web:
+    build:
+      context: .
+      args:
+        HUGO_BASEURL: "${HUGO_BASEURL:-http://localhost:8080/}"
+    image: portfolio-web:prod
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+
+  # Servidor de desenvolvimento com live reload (opcional)
+  dev:
+    profiles: ["dev"]
+    image: hugomods/hugo:exts-0.140.0
+    command: server --bind 0.0.0.0 --baseURL http://localhost:1313 --buildDrafts --disableFastRender
+    working_dir: /src
+    volumes:
+      - .:/src
+    ports:
+      - "1313:1313"
