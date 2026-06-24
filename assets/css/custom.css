@@ -1,0 +1,147 @@
+/* ============================================================
+   Identidade visual do portfólio (sobre o tema Hextra).
+   Tokens de design + seção Hero (Stage 03).
+   ============================================================ */
+
+:root {
+  --pf-accent: #7c3aed;          /* roxo — remete ao ecossistema Elixir */
+  --pf-accent-strong: #6d28d9;
+  --pf-text-muted: #475569;
+  --pf-surface: #f8fafc;
+  --pf-border: #e2e8f0;
+  --pf-radius: 14px;
+}
+
+html.dark {
+  --pf-text-muted: #94a3b8;
+  --pf-surface: #1e293b;
+  --pf-border: #334155;
+}
+
+/* ---------- Layout base das seções ---------- */
+.portfolio {
+  width: 100%;
+}
+
+.section {
+  max-width: 1100px;
+  margin-inline: auto;
+  padding: 4rem 1.5rem;
+  scroll-margin-top: var(--navbar-height, 64px);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  max-width: 1100px;
+  margin-inline: auto;
+  padding: 4rem 1.5rem 2rem;
+  scroll-margin-top: var(--navbar-height, 64px);
+}
+
+.hero__inner {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero__avatar {
+  flex: 0 0 auto;
+}
+
+.hero__photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--pf-accent);
+  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.25);
+  display: block;
+}
+
+.hero__text {
+  flex: 1 1 320px;
+  min-width: 280px;
+}
+
+.hero__name {
+  font-size: clamp(1.9rem, 4vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.25rem;
+}
+
+.hero__role {
+  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+  font-weight: 600;
+  color: var(--pf-accent);
+  margin: 0 0 0.25rem;
+}
+
+.hero__subtitle {
+  color: var(--pf-text-muted);
+  font-weight: 500;
+  margin: 0 0 1rem;
+}
+
+.hero__pitch {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  max-width: 52ch;
+  margin: 0 0 1.75rem;
+}
+
+/* ---------- Botões / CTAs ---------- */
+.hero__cta {
+  display: flex;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.4rem;
+  border-radius: var(--pf-radius);
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease;
+  border: 2px solid transparent;
+}
+
+.btn:hover { transform: translateY(-2px); }
+
+.btn:focus-visible {
+  outline: 3px solid var(--pf-accent);
+  outline-offset: 2px;
+}
+
+.btn--primary {
+  background-color: var(--pf-accent);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(124, 58, 237, 0.3);
+}
+.btn--primary:hover { background-color: var(--pf-accent-strong); }
+
+.btn--secondary {
+  background-color: transparent;
+  color: var(--pf-accent);
+  border-color: var(--pf-accent);
+}
+.btn--secondary:hover { background-color: rgba(124, 58, 237, 0.08); }
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 640px) {
+  .hero__inner { flex-direction: column; text-align: center; }
+  .hero__pitch { margin-inline: auto; }
+  .hero__cta { justify-content: center; }
+  .hero__photo { width: 160px; height: 160px; }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .btn { transition: none; }
+  .btn:hover { transform: none; }
+}

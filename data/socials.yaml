@@ -8,12 +8,12 @@
 
 - id: linkedin
   label: "LinkedIn"
-  url: "https://www.linkedin.com/in/MathBriton"   # TODO: confirmar handle
+  url: "https://www.linkedin.com/in/mathhbriton/"
   icon: "linkedin"
 
 - id: instagram
   label: "Instagram"
-  url: "https://www.instagram.com/MathBriton"       # TODO: confirmar handle
+  url: ""                                            # TODO: handle do Instagram não informado
   icon: "instagram"
 
 - id: email

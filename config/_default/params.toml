@@ -1,6 +1,10 @@
 # Parâmetros do tema Hextra
 # Docs: https://imfing.github.io/hextra/
 
+[author]
+  name = "Matheus Brito"
+  email = "mathhbrito@gmail.com"
+
 [navbar]
   displayTitle = true
   displayLogo = false

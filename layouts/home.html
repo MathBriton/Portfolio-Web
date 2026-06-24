@@ -1,0 +1,21 @@
+{{- /* Layout da landing (one-page). Sobrescreve o home.html do Hextra,
+       mantendo navbar/footer do baseof. Seções preenchidas por stage. */ -}}
+{{ define "main" }}
+  <main id="content" class="portfolio">
+    {{ partial "hero.html" . }}
+
+    {{- /* Âncoras das próximas seções (Stages 04–06).
+           Mantêm os CTAs e o menu funcionando desde já. */ -}}
+    <section id="projetos" class="section section--projetos">
+      {{- /* Stage 04: carrossel de projetos */ -}}
+    </section>
+
+    <section id="skills" class="section section--skills">
+      {{- /* Stage 05: skills & jornada */ -}}
+    </section>
+
+    <section id="contato" class="section section--contato">
+      {{- /* Stage 06: contato & redes sociais */ -}}
+    </section>
+  </main>
+{{ end }}
