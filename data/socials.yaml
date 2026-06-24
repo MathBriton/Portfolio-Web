@@ -1,0 +1,22 @@
+# Redes sociais e contato. Consumido pelas seções de Contato e Footer (Stage 06).
+# TODO(go-live): confirmar handles reais de LinkedIn e Instagram.
+
+- id: github
+  label: "GitHub"
+  url: "https://github.com/MathBriton"
+  icon: "github"
+
+- id: linkedin
+  label: "LinkedIn"
+  url: "https://www.linkedin.com/in/MathBriton"   # TODO: confirmar handle
+  icon: "linkedin"
+
+- id: instagram
+  label: "Instagram"
+  url: "https://www.instagram.com/MathBriton"       # TODO: confirmar handle
+  icon: "instagram"
+
+- id: email
+  label: "E-mail"
+  url: "mailto:mathhbrito@gmail.com"
+  icon: "envelope"

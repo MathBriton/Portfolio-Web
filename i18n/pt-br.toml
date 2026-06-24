@@ -1,0 +1,71 @@
+# Strings de UI em português. Nunca hardcode texto nos templates — use estas chaves.
+
+# Navegação
+[nav_projects]
+other = "Projetos"
+[nav_skills]
+other = "Skills"
+[nav_about]
+other = "Sobre"
+[nav_contact]
+other = "Contato"
+
+# Hero
+[hero_role]
+other = "Desenvolvedor de Software Fullstack"
+[hero_subtitle]
+other = "27 anos · 3 anos de experiência"
+[hero_pitch]
+other = "Construo aplicações fullstack com .NET e Node.js, explorando Elixir e Go para concorrência e alta disponibilidade."
+[hero_avatar_alt]
+other = "Foto de Matheus Brito"
+
+# Botões / CTAs
+[btn_view_projects]
+other = "Ver projetos"
+[btn_get_in_touch]
+other = "Entrar em contato"
+[btn_repo]
+other = "Repositório"
+[btn_demo]
+other = "Demo"
+[btn_copy_email]
+other = "Copiar e-mail"
+[btn_back_to_top]
+other = "Voltar ao topo"
+
+# Seções
+[section_about_title]
+other = "Sobre / Jornada"
+[section_skills_title]
+other = "Skills"
+[section_projects_title]
+other = "Projetos"
+[section_contact_title]
+other = "Contato"
+[contact_lead]
+other = "Vamos conversar?"
+
+# Skills
+[skills_core]
+other = "Principais"
+[skills_learning]
+other = "Em aprendizado"
+[skills_foundations]
+other = "Fundamentos"
+[badge_learning]
+other = "Em aprendizado"
+
+# Acessibilidade (aria-labels)
+[aria_github]
+other = "Perfil no GitHub"
+[aria_linkedin]
+other = "Perfil no LinkedIn"
+[aria_instagram]
+other = "Perfil no Instagram"
+[aria_email]
+other = "Enviar e-mail"
+[aria_carousel_prev]
+other = "Projeto anterior"
+[aria_carousel_next]
+other = "Próximo projeto"

@@ -1,0 +1,66 @@
+# 4 projetos de destaque (carrossel). Ordenados por `order`.
+# Editar aqui adiciona/remove projetos sem tocar nos templates.
+
+- id: erp
+  order: 1
+  featured: true
+  title:
+    pt-br: "Sistema ERP"
+    en: "ERP System"
+  summary:
+    pt-br: "Gestão empresarial integrada: financeiro, estoque e vendas."
+    en: "Integrated business management: finance, inventory and sales."
+  stack: [".NET", "Node.js", "PostgreSQL"]
+  image: "/img/projects/erp.webp"
+  links:
+    repo: ""
+    demo: ""
+  tags: [backend, fullstack]
+
+- id: tickets
+  order: 2
+  featured: true
+  title:
+    pt-br: "Sistema de Chamados"
+    en: "Ticketing System"
+  summary:
+    pt-br: "Comunicação e chamados em tempo real, inspirado no Slack."
+    en: "Real-time communication and ticketing, Slack-inspired."
+  stack: [".NET", "Node.js", "WebSockets"]
+  image: "/img/projects/tickets.webp"
+  links:
+    repo: ""
+    demo: ""
+  tags: [realtime, fullstack]
+
+- id: crm
+  order: 3
+  featured: true
+  title:
+    pt-br: "CRM"
+    en: "CRM"
+  summary:
+    pt-br: "Gestão de relacionamento com clientes e funil de vendas."
+    en: "Customer relationship management and sales funnel."
+  stack: [".NET", "Node.js", "PostgreSQL"]
+  image: "/img/projects/crm.webp"
+  links:
+    repo: ""
+    demo: ""
+  tags: [fullstack]
+
+- id: streaming
+  order: 4
+  featured: true
+  title:
+    pt-br: "Plataforma de Streaming"
+    en: "Streaming Platform"
+  summary:
+    pt-br: "Streaming ao vivo e VOD inspirado em YouTube, Twitch, Kick e Netflix."
+    en: "Live streaming and VOD inspired by YouTube, Twitch, Kick and Netflix."
+  stack: ["Elixir", "Phoenix", "LiveView", "BEAM"]
+  image: "/img/projects/streaming.webp"
+  links:
+    repo: ""
+    demo: ""
+  tags: [realtime, elixir, high-availability]
