@@ -78,3 +78,9 @@ other = "Send email"
 other = "Previous project"
 [aria_carousel_next]
 other = "Next project"
+[aria_carousel]
+other = "Projects carousel"
+[carousel_slide_label]
+other = "Go to project"
+[aria_stack]
+other = "Tech stack"

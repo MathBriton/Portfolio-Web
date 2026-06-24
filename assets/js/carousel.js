@@ -38,13 +38,14 @@
     }
 
     // ----- Dots -----
+    var slideLabel = viewport.getAttribute("data-slide-label") || "Go to project";
     var dots = [];
     if (dotsWrap) {
       slides.forEach(function (_, i) {
         var b = document.createElement("button");
         b.type = "button";
         b.className = "carousel__dot";
-        b.setAttribute("aria-label", "Ir para o projeto " + (i + 1));
+        b.setAttribute("aria-label", slideLabel + " " + (i + 1));
         b.addEventListener("click", function () { scrollToIndex(i); });
         dotsWrap.appendChild(b);
         dots.push(b);

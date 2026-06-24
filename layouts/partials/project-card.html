@@ -29,7 +29,7 @@
     <h3 class="project-card__title">{{ $title }}</h3>
     <p class="project-card__summary">{{ $summary }}</p>
 
-    <ul class="project-card__stack" aria-label="Stack">
+    <ul class="project-card__stack" aria-label="{{ T "aria_stack" }}">
       {{- range .stack }}<li class="badge">{{ . }}</li>{{ end }}
     </ul>
 

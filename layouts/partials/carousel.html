@@ -10,7 +10,8 @@
             aria-label="{{ T "aria_carousel_prev" }}" data-carousel-prev>&#8249;</button>
 
     <div class="carousel__viewport" data-carousel-viewport tabindex="0"
-         role="region" aria-roledescription="carrossel" aria-label="{{ T "section_projects_title" }}">
+         data-slide-label="{{ T "carousel_slide_label" }}"
+         role="region" aria-roledescription="{{ T "aria_carousel" }}" aria-label="{{ T "section_projects_title" }}">
       <ul class="carousel__track" data-carousel-track>
         {{- range $projects }}
           <li class="carousel__slide">
