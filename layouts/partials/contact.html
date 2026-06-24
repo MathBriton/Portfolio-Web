@@ -1,0 +1,32 @@
+{{- /* Seção de contato — Stage 06. Lê data/socials.yaml. */ -}}
+<div class="contact">
+  <h2 class="section__title">{{ T "section_contact_title" }}</h2>
+  <p class="contact__lead">{{ T "contact_lead" }}</p>
+
+  <ul class="contact__links">
+    {{- range hugo.Data.socials }}
+      {{- if .url }}
+        <li>
+          <a class="contact__link" href="{{ .url }}"
+             aria-label="{{ T (printf "aria_%s" .id) }}"
+             {{- if ne .id "email" }} target="_blank" rel="noopener noreferrer"{{ end }}>
+            {{ partial "pf-icon.html" .icon }}
+            <span>{{ .label }}</span>
+          </a>
+        </li>
+      {{- end }}
+    {{- end }}
+  </ul>
+
+  {{- with site.Params.author.email }}
+    <button type="button" class="btn btn--secondary contact__copy"
+            data-copy-email="{{ . }}" data-copied-label="{{ T "btn_copied" }}">
+      {{ T "btn_copy_email" }}
+    </button>
+  {{- end }}
+</div>
+
+{{- with resources.Get "js/contact.js" }}
+  {{- $js := . | minify | fingerprint -}}
+  <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+{{- end }}

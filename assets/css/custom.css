@@ -347,9 +347,88 @@ html.dark .about__body { color: #cbd5e1; }
 .concept-card__title { margin: 0 0 0.4rem; font-size: 1.05rem; font-weight: 700; color: var(--pf-accent); }
 .concept-card__note { margin: 0; font-size: 0.92rem; line-height: 1.5; color: var(--pf-text-muted); }
 
+/* ---------- Contato ---------- */
+.contact { text-align: center; }
+.contact__lead {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 1.75rem;
+}
+.contact__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0 0 1.75rem;
+  padding: 0;
+  list-style: none;
+}
+.contact__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 44px;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--pf-radius);
+  border: 1px solid var(--pf-border);
+  background: var(--pf-surface);
+  color: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color 0.12s ease, transform 0.12s ease;
+}
+.contact__link:hover { border-color: var(--pf-accent); transform: translateY(-2px); }
+.contact__link:focus-visible { outline: 3px solid var(--pf-accent); outline-offset: 2px; }
+.contact__copy.is-copied { border-color: var(--pf-accent); color: var(--pf-accent); }
+
+.pf-icon { display: block; }
+
+/* ---------- Footer custom ---------- */
+.pf-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2.5rem 1.5rem 1rem;
+  text-align: center;
+}
+.pf-footer__social {
+  display: flex;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.pf-footer__social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--pf-border);
+  color: inherit;
+  transition: border-color 0.12s ease, color 0.12s ease;
+}
+.pf-footer__social a:hover { border-color: var(--pf-accent); color: var(--pf-accent); }
+.pf-footer__social a:focus-visible { outline: 3px solid var(--pf-accent); outline-offset: 2px; }
+.pf-footer__copy { margin: 0; font-size: 0.9rem; }
+.pf-footer__top {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--pf-accent);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+.pf-footer__top:hover { text-decoration: underline; }
+.pf-footer__top:focus-visible { outline: 3px solid var(--pf-accent); outline-offset: 2px; border-radius: 6px; }
+
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   .btn { transition: none; }
   .btn:hover { transform: none; }
   .carousel__viewport { scroll-behavior: auto; }
+  .contact__link:hover { transform: none; }
 }

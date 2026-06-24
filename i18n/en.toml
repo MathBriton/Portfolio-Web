@@ -31,6 +31,8 @@ other = "Repository"
 other = "Demo"
 [btn_copy_email]
 other = "Copy email"
+[btn_copied]
+other = "Copied!"
 [btn_back_to_top]
 other = "Back to top"
 

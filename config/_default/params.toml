@@ -11,7 +11,7 @@
 
 [footer]
   enable = true
-  displayCopyright = true
+  displayCopyright = false   # copyright renderizado em custom/footer.html (ano dinâmico)
   displayPoweredBy = false
 
 [theme]
