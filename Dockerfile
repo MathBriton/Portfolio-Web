@@ -5,7 +5,7 @@
 # A imagem hugomods/hugo já traz Hugo extended + Go + Git,
 # necessários para Hugo Modules (tema Hextra).
 # ─────────────────────────────────────────────────────────────
-FROM hugomods/hugo:exts-0.140.0 AS builder
+FROM hugomods/hugo:exts-0.163.3 AS builder
 
 WORKDIR /src
 

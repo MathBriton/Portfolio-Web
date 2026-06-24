@@ -18,7 +18,7 @@ services:
   # Servidor de desenvolvimento com live reload (opcional)
   dev:
     profiles: ["dev"]
-    image: hugomods/hugo:exts-0.140.0
+    image: hugomods/hugo:exts-0.163.3
     command: server --bind 0.0.0.0 --baseURL http://localhost:1313 --buildDrafts --disableFastRender
     working_dir: /src
     volumes:

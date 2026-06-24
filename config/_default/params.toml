@@ -1,0 +1,22 @@
+# Parâmetros do tema Hextra
+# Docs: https://imfing.github.io/hextra/
+
+[navbar]
+  displayTitle = true
+  displayLogo = false
+
+[footer]
+  enable = true
+  displayCopyright = true
+  displayPoweredBy = false
+
+[theme]
+  # default | dark | light
+  default = "system"
+  displayToggle = true
+
+[page]
+  width = "normal"
+
+[editURL]
+  enable = false
