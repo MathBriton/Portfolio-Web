@@ -1,0 +1,33 @@
+{{- /* Carrossel de projetos — Stage 04.
+       Lê data/projects.yaml (featured = true), ordenado por `order`. */ -}}
+{{- $projects := sort (where hugo.Data.projects "featured" true) "order" -}}
+
+<div class="projects">
+  <h2 class="section__title">{{ T "section_projects_title" }}</h2>
+
+  <div class="carousel" data-carousel>
+    <button type="button" class="carousel__btn carousel__btn--prev"
+            aria-label="{{ T "aria_carousel_prev" }}" data-carousel-prev>&#8249;</button>
+
+    <div class="carousel__viewport" data-carousel-viewport tabindex="0"
+         role="region" aria-roledescription="carrossel" aria-label="{{ T "section_projects_title" }}">
+      <ul class="carousel__track" data-carousel-track>
+        {{- range $projects }}
+          <li class="carousel__slide">
+            {{ partial "project-card.html" . }}
+          </li>
+        {{- end }}
+      </ul>
+    </div>
+
+    <button type="button" class="carousel__btn carousel__btn--next"
+            aria-label="{{ T "aria_carousel_next" }}" data-carousel-next>&#8250;</button>
+
+    <div class="carousel__dots" data-carousel-dots aria-hidden="true"></div>
+  </div>
+</div>
+
+{{- with resources.Get "js/carousel.js" }}
+  {{- $js := . | minify | fingerprint -}}
+  <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+{{- end }}

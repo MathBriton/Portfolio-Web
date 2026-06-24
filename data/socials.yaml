@@ -11,11 +11,6 @@
   url: "https://www.linkedin.com/in/mathhbriton/"
   icon: "linkedin"
 
-- id: instagram
-  label: "Instagram"
-  url: ""                                            # TODO: handle do Instagram não informado
-  icon: "instagram"
-
 - id: email
   label: "E-mail"
   url: "mailto:mathhbrito@gmail.com"

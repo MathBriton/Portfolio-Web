@@ -1,0 +1,47 @@
+{{- /* Card de um projeto. Contexto (.) = um item de data/projects.yaml. */ -}}
+{{- $lang := site.Language.Lang -}}
+{{- $title := index .title $lang | default (index .title "pt-br") -}}
+{{- $summary := index .summary $lang | default (index .summary "pt-br") -}}
+
+{{- /* Procura a imagem real em assets/img/projects/<id>.<ext>;
+       se não existir, usa um placeholder. */ -}}
+{{- $img := "" -}}
+{{- range (slice "webp" "jpg" "jpeg" "png") -}}
+  {{- if not $img -}}
+    {{- with resources.Get (printf "img/projects/%s.%s" $.id .) -}}{{- $img = . -}}{{- end -}}
+  {{- end -}}
+{{- end -}}
+
+<article class="project-card">
+  <div class="project-card__media">
+    {{- with $img -}}
+      {{- $p := .Resize "640x webp q80" -}}
+      <img src="{{ $p.RelPermalink }}" width="{{ $p.Width }}" height="{{ $p.Height }}"
+           alt="{{ $title }}" class="project-card__img" loading="lazy" decoding="async" />
+    {{- else -}}
+      <img src="{{ "img/projects/placeholder.svg" | relURL }}" width="640" height="360"
+           alt="{{ $title }}" class="project-card__img project-card__img--placeholder"
+           loading="lazy" decoding="async" />
+    {{- end -}}
+  </div>
+
+  <div class="project-card__body">
+    <h3 class="project-card__title">{{ $title }}</h3>
+    <p class="project-card__summary">{{ $summary }}</p>
+
+    <ul class="project-card__stack" aria-label="Stack">
+      {{- range .stack }}<li class="badge">{{ . }}</li>{{ end }}
+    </ul>
+
+    {{- if or .links.repo .links.demo }}
+      <div class="project-card__links">
+        {{- with .links.repo }}
+          <a class="btn btn--small btn--secondary" href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ T "btn_repo" }}</a>
+        {{- end }}
+        {{- with .links.demo }}
+          <a class="btn btn--small btn--primary" href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ T "btn_demo" }}</a>
+        {{- end }}
+      </div>
+    {{- end }}
+  </div>
+</article>
