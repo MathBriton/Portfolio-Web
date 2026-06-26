@@ -3,18 +3,19 @@ import type { ComponentProps } from "react";
 import { cn } from "@/lib/utils";
 
 const badgeVariants = cva(
-  "inline-flex items-center rounded-sm border font-mono font-medium leading-none",
+  "inline-flex items-center rounded-md border px-2 py-0.5 text-xs font-medium transition-colors",
   {
     variants: {
       variant: {
         default:
-          "border-border bg-muted px-2 py-1 text-xs text-primary before:mr-0.5 before:text-primary/60 before:content-['#']",
-        learning:
-          "border-primary bg-transparent px-2 py-1 text-[0.66rem] uppercase tracking-wide text-primary",
+          "border-transparent bg-primary text-primary-foreground",
+        secondary:
+          "border-transparent bg-secondary text-secondary-foreground",
+        outline: "border-border text-foreground",
       },
     },
     defaultVariants: {
-      variant: "default",
+      variant: "secondary",
     },
   },
 );

@@ -9,11 +9,10 @@ export function ThemeToggle() {
 
   return (
     <Button
-      variant="icon"
+      variant="outline"
       size="icon"
       onClick={toggleTheme}
       aria-label={t("aria_theme_toggle")}
-      className="size-9"
     >
       {theme === "dark" ? (
         <Sun className="size-4" />

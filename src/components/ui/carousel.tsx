@@ -146,7 +146,7 @@ export function CarouselPrevious({ label, ...props }: CarouselButtonProps) {
   const { scrollPrev, canScrollPrev } = useCarousel();
   return (
     <Button
-      variant="icon"
+      variant="outline"
       size="icon"
       aria-label={label}
       disabled={!canScrollPrev}
@@ -162,7 +162,7 @@ export function CarouselNext({ label, ...props }: CarouselButtonProps) {
   const { scrollNext, canScrollNext } = useCarousel();
   return (
     <Button
-      variant="icon"
+      variant="outline"
       size="icon"
       aria-label={label}
       disabled={!canScrollNext}

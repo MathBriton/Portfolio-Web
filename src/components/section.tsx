@@ -1,23 +1,30 @@
 import type { ReactNode } from "react";
+import { cn } from "@/lib/utils";
 
 type SectionProps = {
   id: string;
-  index: number;
-  title: string;
+  title?: string;
+  /** Renderiza a seção como uma "tela" de altura total, com snap de rolagem. */
+  panel?: boolean;
   children: ReactNode;
 };
 
-/** Section wrapper with the `[0N] title ────` terminal-style heading. */
-export function Section({ id, index, title, children }: SectionProps) {
+export function Section({ id, title, panel, children }: SectionProps) {
   return (
-    <section id={id} className="mx-auto max-w-3xl scroll-mt-20 px-6 py-14">
-      <h2 className="mb-7 flex items-baseline gap-2.5 text-lg font-bold lowercase tracking-tight">
-        <span className="font-medium text-primary">
-          [{String(index).padStart(2, "0")}]
-        </span>
-        <span>{title}</span>
-        <span aria-hidden className="h-px flex-1 self-center bg-border" />
-      </h2>
+    <section
+      id={id}
+      className={cn(
+        "mx-auto max-w-3xl px-6",
+        panel
+          ? "flex min-h-[calc(100dvh-4rem)] snap-start flex-col justify-center py-20"
+          : "scroll-mt-20 py-14",
+      )}
+    >
+      {title && (
+        <h2 className="mb-8 text-center text-2xl font-semibold tracking-tight">
+          {title}
+        </h2>
+      )}
       {children}
     </section>
   );

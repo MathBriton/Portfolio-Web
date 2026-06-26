@@ -1,4 +1,4 @@
-import type { Language } from "@/i18n/translations";
+import type { Language, TranslationKey } from "@/i18n/translations";
 
 /** A value translated into every supported language. */
 export type Localized<T = string> = Record<Language, T>;
@@ -17,25 +17,41 @@ export type Project = {
 
 export type CoreSkill = {
   name: string;
+  /** Path to the language logo, shown in place of the name. */
+  icon: string;
   level: Localized;
   years: number;
 };
 
 export type LearningSkill = {
   name: string;
+  /** Path to the language logo, shown in place of the name. */
+  icon: string;
   focus: Localized;
+};
+
+export type StackBadge = {
+  /** Plain string, or a localized label when it differs between languages. */
+  name: string | Localized;
+  /** Brand color for the border — set on programming languages. */
+  color?: string;
+};
+
+export type StackGroup = {
+  /** i18n key for the group heading. */
+  labelKey: TranslationKey;
+  items: StackBadge[];
 };
 
 export type Skills = {
   core: CoreSkill[];
   learning: LearningSkill[];
-  foundations: string[];
+  stack: StackGroup[];
 };
 
 export type SocialId = "github" | "linkedin" | "email";
 
 export type Social = {
   id: SocialId;
-  label: string;
   url: string;
 };

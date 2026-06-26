@@ -4,34 +4,55 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ============================================================
-   Design tokens — estética terminal/brutalista (zinc + ciano).
+   Design tokens — paleta neutra padrão do shadcn/ui (oklch).
    Dark é o tema padrão; light disponível via toggle.
    ============================================================ */
 :root {
-  --background: #fafafa;
-  --foreground: #18181b;
-  --card: #ffffff;
-  --card-foreground: #18181b;
-  --muted: #f4f4f5;
-  --muted-foreground: #52525b;
-  --border: #e4e4e7;
-  --primary: #0e7490;
-  --primary-foreground: #ffffff;
-  --ring: #0891b2;
-  --radius: 0.375rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --radius: 0.625rem;
+
+  /* Dourado de destaque — mais escuro no tema claro para bom contraste
+     sobre fundos brancos. */
+  --gold: hsl(38 72% 42%);
+  /* Brilho do ponteiro: tom dourado sutil (legível no claro). */
+  --glow: color-mix(in oklch, var(--gold) 16%, transparent);
 }
 
 .dark {
-  --background: #0a0a0a;
-  --foreground: #e5e5e5;
-  --card: #121212;
-  --card-foreground: #e5e5e5;
-  --muted: #161616;
-  --muted-foreground: #8a8a8a;
-  --border: #262626;
-  --primary: #22d3ee;
-  --primary-foreground: #0a0a0a;
-  --ring: #22d3ee;
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+
+  /* Dourado mais vivo no escuro, para destacar sobre o fundo escuro. */
+  --gold: hsl(45 80% 60%);
+  /* Brilho do ponteiro: claro/branco sobre o fundo escuro. */
+  --glow: color-mix(in oklch, var(--foreground) 14%, transparent);
 }
 
 @theme inline {
@@ -39,19 +60,25 @@
   --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-border: var(--border);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
-    "Liberation Mono", monospace;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
 
-  --radius-sm: calc(var(--radius) - 2px);
-  --radius-md: var(--radius);
-  --radius-lg: calc(var(--radius) + 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
 @layer base {
@@ -61,15 +88,19 @@
 
   html {
     scroll-behavior: smooth;
+    /* Cada seção principal funciona como uma "tela"; o snap suaviza a
+       navegação entre Início, Experiência e Projetos. "proximity" evita
+       prender a rolagem quando o conteúdo ultrapassa a altura do viewport. */
+    scroll-snap-type: y proximity;
+    scroll-padding-top: 4rem;
   }
 
   body {
     margin: 0;
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-family: var(--font-mono);
-    font-size: 0.95rem;
-    line-height: 1.7;
+    font-family: var(--font-sans);
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -80,7 +111,115 @@
     *,
     *::before,
     *::after {
+      animation: none !important;
       transition-duration: 0.01ms !important;
     }
+  }
+}
+
+/* ============================================================
+   Background animado (sutil): grade que desliza lentamente,
+   esmaecida nas bordas. Fica atrás de todo o conteúdo.
+   ============================================================ */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in oklch, var(--foreground) 7%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in oklch, var(--foreground) 7%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 44px 44px;
+  -webkit-mask-image: radial-gradient(
+    120% 80% at 50% 0%,
+    black,
+    transparent 70%
+  );
+  mask-image: radial-gradient(120% 80% at 50% 0%, black, transparent 70%);
+  animation: pf-grid 30s linear infinite;
+}
+
+@keyframes pf-grid {
+  to {
+    background-position: 44px 44px;
+  }
+}
+
+/* ============================================================
+   Brilho interativo que segue o ponteiro do mouse.
+   Coordenadas (--mx/--my) e --active vêm do <BackgroundFX />.
+   Fica atrás do conteúdo, acima da grade.
+   ============================================================ */
+.pointer-glow {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: var(--active, 0);
+  transition: opacity 0.5s ease;
+  background: radial-gradient(
+    600px circle at var(--mx, 50%) var(--my, 30%),
+    var(--glow),
+    transparent 55%
+  );
+}
+
+/* ============================================================
+   Bordas animadas: um anel com gradiente cônico que gira
+   sobre a borda dos elementos (cards). Usa máscara para
+   pintar apenas a moldura, sem cobrir o conteúdo.
+   ============================================================ */
+@property --pf-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.animated-border {
+  position: relative;
+}
+
+.animated-border::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  padding: 1px;
+  pointer-events: none;
+  background: conic-gradient(
+    from var(--pf-angle),
+    transparent 0%,
+    var(--pf-border-color, var(--primary)) 12%,
+    transparent 28%,
+    transparent 50%,
+    var(--pf-border-color, var(--primary)) 62%,
+    transparent 78%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: pf-spin 6s linear infinite;
+}
+
+/* Borda animada em tom dourado (cards colapsáveis). */
+.animated-border-gold {
+  --pf-border-color: var(--gold);
+}
+
+@keyframes pf-spin {
+  to {
+    --pf-angle: 360deg;
   }
 }

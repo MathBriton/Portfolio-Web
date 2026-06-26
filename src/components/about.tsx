@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { Section } from "@/components/section";
+import { Collapsible } from "@/components/ui/collapsible";
 import { useLanguage } from "@/providers/language-provider";
 
 /** Renders a string with **bold** markdown segments emphasized. */
@@ -15,14 +15,19 @@ function renderEmphasis(text: string) {
   );
 }
 
+/** Card colapsável "Mais sobre mim", exibido dentro da tela de Início. */
 export function About() {
   const { t } = useLanguage();
 
   return (
-    <Section id="sobre" index={1} title={t("section_about_title")}>
-      <p className="max-w-prose text-base leading-relaxed text-muted-foreground">
+    <Collapsible
+      title={t("about_card_title")}
+      centerTitle
+      className="mx-auto w-full max-w-prose"
+    >
+      <p className="text-base leading-relaxed text-muted-foreground">
         {renderEmphasis(t("about_body"))}
       </p>
-    </Section>
+    </Collapsible>
   );
 }

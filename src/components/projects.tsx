@@ -1,4 +1,6 @@
+import { Github } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
+import { Footer } from "@/components/footer";
 import { Section } from "@/components/section";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -21,8 +23,8 @@ function ProjectCard({ project }: { project: Project }) {
   const { repo, demo } = project.links;
 
   return (
-    <Card className="h-full overflow-hidden hover:border-primary">
-      <div className="aspect-video bg-muted">
+    <Card className="animated-border relative h-full overflow-hidden hover:border-primary">
+      <div className="relative aspect-video bg-muted">
         <img
           src={project.image}
           alt={project.title[language]}
@@ -30,10 +32,27 @@ function ProjectCard({ project }: { project: Project }) {
           decoding="async"
           className="size-full object-cover"
         />
+        {repo && (
+          <span className="absolute right-2 top-2 z-10 rounded-md bg-background/80 p-1.5 text-muted-foreground backdrop-blur">
+            <Github className="size-4" />
+          </span>
+        )}
       </div>
       <CardContent>
-        <h3 className="font-bold before:text-primary before:content-['>_']">
-          {project.title[language]}
+        <h3 className="font-semibold">
+          {repo ? (
+            <a
+              href={repo}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${project.title[language]} — ${t("btn_repo")}`}
+              className="outline-none after:absolute after:inset-0 focus-visible:underline"
+            >
+              {project.title[language]}
+            </a>
+          ) : (
+            project.title[language]
+          )}
         </h3>
         <p className="text-sm leading-snug text-muted-foreground">
           {project.summary[language]}
@@ -48,28 +67,16 @@ function ProjectCard({ project }: { project: Project }) {
             </li>
           ))}
         </ul>
-        {(repo || demo) && (
-          <div className="mt-2 flex gap-2">
-            {repo && (
-              <a
-                href={repo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={buttonVariants({ variant: "secondary", size: "sm" })}
-              >
-                {t("btn_repo")}
-              </a>
-            )}
-            {demo && (
-              <a
-                href={demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={buttonVariants({ variant: "primary", size: "sm" })}
-              >
-                {t("btn_demo")}
-              </a>
-            )}
+        {demo && (
+          <div className="relative z-10 mt-2 flex gap-2">
+            <a
+              href={demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={buttonVariants({ variant: "default", size: "sm" })}
+            >
+              {t("btn_demo")}
+            </a>
           </div>
         )}
       </CardContent>
@@ -101,8 +108,12 @@ export function Projects() {
   const scrollTo = useCallback((index: number) => api?.scrollTo(index), [api]);
 
   return (
-    <Section id="projetos" index={3} title={t("section_projects_title")}>
-      <Carousel setApi={setApi} aria-label={t("aria_carousel")}>
+    <Section id="projetos" title={t("section_projects_title")} panel>
+      <Carousel
+        setApi={setApi}
+        options={{ slidesToScroll: "auto" }}
+        aria-label={t("aria_carousel")}
+      >
         <div className="flex items-center gap-3">
           <CarouselPrevious label={t("aria_carousel_prev")} />
           <CarouselContent className="flex-1 py-1">
@@ -133,6 +144,8 @@ export function Projects() {
           </div>
         )}
       </Carousel>
+
+      <Footer />
     </Section>
   );
 }
