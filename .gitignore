@@ -1,13 +1,7 @@
-# Hugo
-/public/
-/resources/_gen/
-/.hugo_build.lock
-hugo_stats.json
+# Build output
+/dist/
 
-# Hugo Modules / Go
-/go.sum.bak
-
-# Node (caso ferramentas de build sejam adicionadas)
+# Node
 node_modules/
 npm-debug.log*
 
